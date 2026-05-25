@@ -1,0 +1,89 @@
+@import "tailwindcss";
+@config "../tailwind.config.cjs";
+
+/* Custom base styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-[#F8F9FA] text-[#212529] font-sans min-h-screen flex flex-col;
+}
+
+/* Enterprise Solid UI Card */
+.enterprise-card {
+  background-color: #ffffff;
+  border: 1px solid #E5E7EB;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.02);
+}
+
+.enterprise-card-dark {
+  background-color: #0A1F44;
+  border: 1px solid #1E293B;
+  border-radius: 12px;
+}
+
+/* Biometric Scanner Match box Animation */
+@keyframes biometric-scan {
+  0% {
+    top: 0%;
+  }
+  50% {
+    top: 100%;
+  }
+  100% {
+    top: 0%;
+  }
+}
+
+.animate-scan-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: #00B4D8;
+  box-shadow: 0 0 8px #00B4D8;
+  animation: biometric-scan 2.5s infinite linear;
+}
+
+/* Pulse animation for key node connections */
+@keyframes signal-pulse {
+  0% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.3;
+  }
+}
+
+.animate-pulse-signal {
+  animation: signal-pulse 2s infinite ease-in-out;
+}
+
+/* Real-world Election Console Logs Log design */
+.terminal-body {
+  background-color: #0F172A;
+  color: #E2E8F0;
+  border: 1px solid #1E293B;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+/* Custom scrollbars for clean styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 6px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
+}

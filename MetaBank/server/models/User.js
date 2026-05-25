@@ -19,16 +19,15 @@ const UserSchema = new mongoose.Schema({
   tokenBalance: { type: Number, default: 0 },
   ethBalance: { type: String, default: '0' },
   stakingBalance: { type: Number, default: 0 },
-  role: { type: String, enum: ['user', 'admin'], default: 'user' },
+  role: { type: String, enum: ['user', 'customer', 'officer', 'admin'], default: 'customer' },
   createdAt: { type: Date, default: Date.now }
 });
 
-UserSchema.pre('save', async function (next) {
-  if (!this.isModified('password')) return next();
-  if (!this.password) return next();
+UserSchema.pre('save', async function () {
+  if (!this.isModified('password')) return;
+  if (!this.password) return;
   const salt = await bcrypt.genSalt(10);
   this.password = await bcrypt.hash(this.password, salt);
-  next();
 });
 
 UserSchema.methods.matchPassword = async function (entered) {

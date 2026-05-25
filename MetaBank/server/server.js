@@ -15,6 +15,8 @@ const stakingRoutes = require('./routes/staking');
 const aiRoutes = require('./routes/ai');
 const adminRoutes = require('./routes/admin');
 const userRoutes = require('./routes/user');
+const explorerRoutes = require('./routes/explorer');
+const notificationRoutes = require('./routes/notification');
 
 const { errorHandler } = require('./middleware/errorHandler');
 const socketHandler = require('./sockets/socket');
@@ -40,6 +42,8 @@ app.use('/api/staking', stakingRoutes);
 app.use('/api/ai', aiRoutes);
 app.use('/api/admin', adminRoutes);
 app.use('/api/user', userRoutes);
+app.use('/api/explorer', explorerRoutes);
+app.use('/api/notifications', notificationRoutes);
 
 app.get('/', (req, res) => res.json({ ok: true, name: 'MetaBank API' }));
 

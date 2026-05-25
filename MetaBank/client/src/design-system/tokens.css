@@ -1,119 +1,89 @@
-/* Design tokens for MetaBank - banking palette */
+/* Design tokens for MetaBank - futuristic dark-blue & cyan fintech theme */
 :root {
-  /* Backgrounds */
-  --bg-100: #EEF4FF; /* Main Dashboard Background */
-  --bg-50: #F7FAFC;  /* Secondary Sections */
+  /* Core Base Colors */
+  --bg-dark: #030712; 
+  --bg-deep: #090f1d; 
+  --bg-card: rgba(15, 23, 42, 0.65); 
+  --border-glass: rgba(6, 182, 212, 0.15); 
+  
+  --primary: #0284c7; 
+  --primary-light: #06b6d4; 
+  --cyan: #06b6d4; 
+  --navy: #0f172a; 
+  --success: #10b981; 
+  --gold: #f59e0b; 
+  --soft-gray: #1e293b;
 
-  /* Enterprise color palette (SBI-inspired) */
-  --primary: #005BAC; /* Primary Banking Blue */
-  --primary-light: #0072CE; /* Secondary SBI Blue */
-  --cyan: #00AEEF; /* Finance Cyan */
-  --navy: #0B2948; /* Enterprise Navy */
-  --success: #16A34A; /* Success Green */
-  --gold: #EAB308; /* Premium Gold */
-  --soft-gray: #F3F4F6;
+  /* Typography Colors */
+  --text-900: #f9fafb; 
+  --text-700: #9ca3af; 
+  --muted: #6b7280;
 
-  /* Text */
-  --text-900: #111827; /* Primary text */
-  --text-700: #6B7280; /* Secondary text */
-  --muted: #6B7280;
+  /* Layout and UI Elements */
+  --bg-100: var(--bg-dark);
+  --bg-50: var(--bg-deep);
+  --card-bg: var(--bg-card);
+  --card-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+  --border: var(--border-glass);
+  --overlay: rgba(3, 7, 18, 0.85);
+  --nav-hover: rgba(6, 182, 212, 0.08);
+  --nav-active: rgba(6, 182, 212, 0.15);
+  --enterprise-accent: var(--cyan);
 
-  /* Cards / shadows */
-  --card-bg: #FFFFFF;
-  --card-shadow: 0 8px 30px rgba(11,30,50,0.06);
-
-  /* Borders */
-  --border: rgba(11,30,50,0.06);
-  --overlay: rgba(11,41,72,0.08);
-  --nav-hover: rgba(11,61,145,0.04);
-  --nav-active: rgba(11,61,145,0.06);
+  /* Dashboard background gradients */
+  --dashboard-bg-start: rgba(6, 182, 212, 0.04);
+  --dashboard-bg-end: rgba(3, 7, 18, 0.0);
 }
 
-/* Theme variants */
-:root[data-theme='professional'] {
-  --bg-100: #EEF4FF;
-  --bg-50: #F7FAFC;
-  --primary: #005BAC;
-  --primary-light: #0072CE;
-  --navy: #0B2948;
-  --cyan: #00AEEF;
-  --gold: #EAB308;
-  --text-900: #111827;
-  --text-700: #6B7280;
-  --muted: #6B7280;
-  --card-bg: #FFFFFF;
-  --card-shadow: 0 8px 30px rgba(11,30,50,0.06);
-}
-
-:root[data-theme='navy'] {
-  --bg-100: #e9f0fb; /* soft */
-  --bg-50: #f7fbff;
-  --primary: #08264a; /* deeper blue */
-  --primary-light: #1e4a7a;
-  --navy: #04172b;
-  --emerald: #0f9d58;
-  --cyan: #39c0d6;
-  --gold: #b98945;
-  --text-900: #071526;
-  --text-700: #2b435e;
-  --muted: #5b6e80;
-  --card-bg: #ffffff;
-  --card-shadow: 0 10px 35px rgba(4,23,43,0.06);
+/* Maintain compatibility for multiple themes with styling variants */
+:root[data-theme='professional'], 
+:root[data-theme='navy'], 
+:root[data-theme='enterprise'] {
+  --bg-100: #030712;
+  --bg-50: #090f1d;
+  --primary: #0284c7;
+  --primary-light: #06b6d4;
+  --navy: #0f172a;
+  --cyan: #06b6d4;
+  --gold: #f59e0b;
+  --text-900: #f9fafb;
+  --text-700: #9ca3af;
+  --muted: #6b7280;
+  --card-bg: var(--bg-card);
+  --card-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
 }
 
 :root[data-theme='emerald'] {
-  --bg-100: #f0fbf6;
-  --bg-50: #ffffff;
-  --primary: #0b6b3a;
-  --primary-light: #2da66a;
-  --navy: #083927;
-  --emerald: #0b6b3a;
-  --cyan: #0fb0a9;
-  --gold: #a07b4a;
-  --text-900: #052b21;
-  --text-700: #2f5950;
-  --muted: #567d72;
-  --card-bg: #ffffff;
-  --card-shadow: 0 8px 30px rgba(5,43,33,0.06);
+  --bg-100: #022c22;
+  --bg-50: #022c22;
+  --primary: #10b981;
+  --primary-light: #34d399;
+  --navy: #064e3b;
+  --cyan: #14b8a6;
+  --gold: #f59e0b;
+  --text-900: #f0fdf4;
+  --text-700: #a7f3d0;
+  --muted: #6ee7b7;
+  --card-bg: rgba(6, 78, 59, 0.4);
+  --card-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
 }
 
 :root[data-theme='gold'] {
-  --bg-100: #fff9f1;
-  --bg-50: #ffffff;
-  --primary: #7a4f00;
-  --primary-light: #b2772a;
-  --navy: #2b1f10;
-  --emerald: #0f9d58;
-  --cyan: #06b6d4;
-  --gold: #c59d5f;
-  --text-900: #2b1f10;
-  --text-700: #544133;
-  --muted: #8b7a6a;
-  --card-bg: #ffffff;
-  --card-shadow: 0 8px 30px rgba(43,31,16,0.06);
-}
-
-:root[data-theme='enterprise'] {
-  --bg-100: #EEF4FF;
-  --bg-50: #F7FAFC;
-  --primary: #005BAC; /* Primary Banking Blue */
-  --primary-light: #0072CE;
-  --navy: #0B2948;
-  --cyan: #00AEEF;
-  --gold: #EAB308;
-  --enterprise-accent: #005BAC;
-  --text-900: #111827;
-  --text-700: #6B7280;
-  --muted: #6B7280;
-  --card-bg: #FFFFFF;
-  --card-shadow: 0 12px 40px rgba(7,24,41,0.06);
-
-  /* dashboard background gradient for enterprise theme */
-  --dashboard-bg-start: rgba(11,41,72,0.03);
-  --dashboard-bg-end: rgba(255,255,255,0.0);
+  --bg-100: #1c1917;
+  --bg-50: #1c1917;
+  --primary: #d97706;
+  --primary-light: #f59e0b;
+  --navy: #451a03;
+  --cyan: #38bdf8;
+  --gold: #fbbf24;
+  --text-900: #fffbeb;
+  --text-700: #fde68a;
+  --muted: #fcd34d;
+  --card-bg: rgba(69, 26, 3, 0.4);
+  --card-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
 }
 
 /* Typography scales */
-.h1 { font-size: 1.75rem; font-weight: 700; color: var(--text-900); }
-.h2 { font-size: 1.25rem; font-weight: 600; color: var(--text-900); }
-.small-muted { color: var(--muted); }
+.h1 { font-size: 2rem; font-weight: 800; color: var(--text-900); letter-spacing: -0.025em; }
+.h2 { font-size: 1.5rem; font-weight: 700; color: var(--text-900); }
+.small-muted { color: var(--muted); font-size: 0.875rem; }

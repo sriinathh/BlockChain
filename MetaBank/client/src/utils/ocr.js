@@ -1,7 +1,7 @@
 import { createWorker } from 'tesseract.js';
 
 export async function ocrImage(file, options = {}) {
-  const worker = createWorker({ logger: () => {} });
+  const worker = await createWorker({ logger: () => {} });
   try {
     await worker.load();
     await worker.loadLanguage('eng');

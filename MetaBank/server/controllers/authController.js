@@ -160,3 +160,35 @@ exports.verifyWallet = async (req, res, next) => {
     res.json({ user: { id: user._id, wallets: user.wallets }, token: generateToken(user._id) });
   } catch (err) { next(err); }
 };
+
+exports.linkWallet = async (req, res, next) => {
+  try {
+    const user = req.user;
+    const { address, signature } = req.body;
+    if (!address || !signature) return res.status(400).json({ message: 'Address and signature required' });
+    if (!user) return res.status(401).json({ message: 'Unauthorized' });
+    const message = `Link wallet nonce:${user.nonce || 'link_wallet'}`;
+    let recovered;
+    try {
+      recovered = ethers.verifyMessage(message, signature);
+    } catch (e) {
+      return res.status(400).json({ message: 'Invalid signature' });
+    }
+    if (recovered.toLowerCase() !== address.toLowerCase()) return res.status(400).json({ message: 'Signature does not match address' });
+    
+    if (!user.wallets.includes(address)) {
+      user.wallets.push(address);
+    }
+    user.nonce = undefined;
+    await user.save();
+    
+    const Wallet = require('../models/Wallet');
+    let cacheWallet = await Wallet.findOne({ address });
+    if (!cacheWallet) {
+      await Wallet.create({ user: user._id, address, verified: true });
+    }
+    
+    res.json({ success: true, wallets: user.wallets });
+  } catch (err) { next(err); }
+};
+
