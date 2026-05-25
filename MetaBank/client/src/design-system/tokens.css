@@ -1,0 +1,119 @@
+/* Design tokens for MetaBank - banking palette */
+:root {
+  /* Backgrounds */
+  --bg-100: #EEF4FF; /* Main Dashboard Background */
+  --bg-50: #F7FAFC;  /* Secondary Sections */
+
+  /* Enterprise color palette (SBI-inspired) */
+  --primary: #005BAC; /* Primary Banking Blue */
+  --primary-light: #0072CE; /* Secondary SBI Blue */
+  --cyan: #00AEEF; /* Finance Cyan */
+  --navy: #0B2948; /* Enterprise Navy */
+  --success: #16A34A; /* Success Green */
+  --gold: #EAB308; /* Premium Gold */
+  --soft-gray: #F3F4F6;
+
+  /* Text */
+  --text-900: #111827; /* Primary text */
+  --text-700: #6B7280; /* Secondary text */
+  --muted: #6B7280;
+
+  /* Cards / shadows */
+  --card-bg: #FFFFFF;
+  --card-shadow: 0 8px 30px rgba(11,30,50,0.06);
+
+  /* Borders */
+  --border: rgba(11,30,50,0.06);
+  --overlay: rgba(11,41,72,0.08);
+  --nav-hover: rgba(11,61,145,0.04);
+  --nav-active: rgba(11,61,145,0.06);
+}
+
+/* Theme variants */
+:root[data-theme='professional'] {
+  --bg-100: #EEF4FF;
+  --bg-50: #F7FAFC;
+  --primary: #005BAC;
+  --primary-light: #0072CE;
+  --navy: #0B2948;
+  --cyan: #00AEEF;
+  --gold: #EAB308;
+  --text-900: #111827;
+  --text-700: #6B7280;
+  --muted: #6B7280;
+  --card-bg: #FFFFFF;
+  --card-shadow: 0 8px 30px rgba(11,30,50,0.06);
+}
+
+:root[data-theme='navy'] {
+  --bg-100: #e9f0fb; /* soft */
+  --bg-50: #f7fbff;
+  --primary: #08264a; /* deeper blue */
+  --primary-light: #1e4a7a;
+  --navy: #04172b;
+  --emerald: #0f9d58;
+  --cyan: #39c0d6;
+  --gold: #b98945;
+  --text-900: #071526;
+  --text-700: #2b435e;
+  --muted: #5b6e80;
+  --card-bg: #ffffff;
+  --card-shadow: 0 10px 35px rgba(4,23,43,0.06);
+}
+
+:root[data-theme='emerald'] {
+  --bg-100: #f0fbf6;
+  --bg-50: #ffffff;
+  --primary: #0b6b3a;
+  --primary-light: #2da66a;
+  --navy: #083927;
+  --emerald: #0b6b3a;
+  --cyan: #0fb0a9;
+  --gold: #a07b4a;
+  --text-900: #052b21;
+  --text-700: #2f5950;
+  --muted: #567d72;
+  --card-bg: #ffffff;
+  --card-shadow: 0 8px 30px rgba(5,43,33,0.06);
+}
+
+:root[data-theme='gold'] {
+  --bg-100: #fff9f1;
+  --bg-50: #ffffff;
+  --primary: #7a4f00;
+  --primary-light: #b2772a;
+  --navy: #2b1f10;
+  --emerald: #0f9d58;
+  --cyan: #06b6d4;
+  --gold: #c59d5f;
+  --text-900: #2b1f10;
+  --text-700: #544133;
+  --muted: #8b7a6a;
+  --card-bg: #ffffff;
+  --card-shadow: 0 8px 30px rgba(43,31,16,0.06);
+}
+
+:root[data-theme='enterprise'] {
+  --bg-100: #EEF4FF;
+  --bg-50: #F7FAFC;
+  --primary: #005BAC; /* Primary Banking Blue */
+  --primary-light: #0072CE;
+  --navy: #0B2948;
+  --cyan: #00AEEF;
+  --gold: #EAB308;
+  --enterprise-accent: #005BAC;
+  --text-900: #111827;
+  --text-700: #6B7280;
+  --muted: #6B7280;
+  --card-bg: #FFFFFF;
+  --card-shadow: 0 12px 40px rgba(7,24,41,0.06);
+
+  /* dashboard background gradient for enterprise theme */
+  --dashboard-bg-start: rgba(11,41,72,0.03);
+  --dashboard-bg-end: rgba(255,255,255,0.0);
+}
+
+/* Typography scales */
+.h1 { font-size: 1.75rem; font-weight: 700; color: var(--text-900); }
+.h2 { font-size: 1.25rem; font-weight: 600; color: var(--text-900); }
+.small-muted { color: var(--muted); }

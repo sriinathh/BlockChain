@@ -1,0 +1,3 @@
+[submodule "MetaBank"]
+	path = MetaBank
+	url = https://github.com/sriinathh/MetaBank.git
